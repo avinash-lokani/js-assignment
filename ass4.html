@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local And Session storage</title>
+    </head>
+    <body>
+        <h1>Local and Session Storage Demo</h1>
+        <h2 id="local"></h2>
+        <h2 id="session"></h2>
+        <button onclick="increment()">+</button>
+        <script>
+            let localCount = document.getElementById("local");
+            let sessionCount = document.getElementById("session");
+
+
+            if(localStorage.getItem("data") != "NaN"){
+                var data = parseInt(localStorage.getItem("data"));
+            }
+            else{
+                localStorage.setItem("data",0);
+                var data = 0;
+            }
+            
+            localCount.innerText = data;
+
+            if("data" in sessionStorage){
+                var sessiondata = parseInt(sessionStorage.getItem("data"));
+            } 
+            else{
+                sessionStorage.setItem("data",0);
+                var sessiondata = 0;
+            }
+            
+            sessionCount.innerText = sessiondata;
+
+            function increment(){
+                data = data + 1;
+                localCount.innerText = data;
+                localStorage.setItem("data",data.toString());
+
+
+                sessiondata = sessiondata + 1;
+                sessionCount.innerText = sessiondata;
+                sessionStorage.setItem("data",sessiondata.toString());
+            };
+
+        </script>
+    </body>
+</html>

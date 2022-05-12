@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurant App</title>
+        <link rel="stylesheet" href="/ass5/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="column left">
+                <h2 class="heading">Tables</h2>
+                <input id = "searchtable" type="text" onkeyup="searchTablesList()" placeholder="Search table">
+               
+                <div id = "tables" class="tables">
+                    <div id = "1" class="tables-list" onclick="clicked(this)" ondrop="drop(event)" ondragover = "allowDrop(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)">
+                        <h2 id = "tablename">Table - 1</h2>
+                        <h4 id = "tabledes">Rs. <span id = "amount" class="amount">0</span> | Total Items: <span id = "item11" class="no-of-items">0</span></h4>
+                        <hr></hr>
+                    </div>
+               
+                    <div id = "2" class="tables-list" onclick="clicked(this)" ondrop="drop(event)" ondragover = "allowDrop(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)">
+                        <h2 id = "tablename">Table - 2</h2>
+                        <h4 id = "tabledes">Rs. <span id = "amount" class="amount">0</span> | Total Items: <span id = "item12" class="no-of-items">0</span></h4>
+                        <hr></hr>
+                    </div>
+                    
+                    <div id = "3" class="tables-list" onclick="clicked(this)" ondrop="drop(event)" ondragover = "allowDrop(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)">
+                        <h2 id = "tablename">Table -3</h2>
+                        <h4 id = "tabledes">Rs. <span id = "amount" class="amount">0</span> | Total Items: <span id = "item13" class="no-of-items">0</span></h4>
+                        <hr></hr>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="column right">
+            <h2 class="heading">Menu</h2>
+            <input id = "searchitem" onkeyup="searchItemsList()" type="text" placeholder="Search menu - by course,by food">
+            <div id = "menu" class="Menu"></div>
+        </div>
+
+        
+            <div class = "container">
+               
+                <div class="content">
+                    <h2 class="tableno"></h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Item</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tablebody">
+        
+                        </tbody>
+                    </table>
+                    <div class="total">Total amount <div class="totalamount"></div></div>
+                    <h2 class="GenerateBill">Close Session(GenerateBill)</h2>
+
+                </div> 
+
+            </div>
+
+        <script src="/ass5/script.js"></script>
+
+    </body>
+</html>
