@@ -8,7 +8,7 @@
     <body>
         <div class="column left">
                 <h2 class="heading">Tables</h2>
-                <input id = "searchtable" type="text" onkeyup="searchTablesList()" placeholder="Search table">
+                <input id = "searchtable" type="text" onkeyup="search()" placeholder="Search table">
                
                 <div id = "tables" class="tables">
                     <div id = "1" class="tables-list" onclick="clicked(this)" ondrop="drop(event)" ondragover = "allowDrop(event)" ondragenter="dragenter(event)" ondragleave="dragleave(event)">
@@ -33,7 +33,7 @@
         
         <div class="column right">
             <h2 class="heading">Menu</h2>
-            <input id = "searchitem" onkeyup="searchItemsList()" type="text" placeholder="Search menu - by course,by food">
+            <input id = "searchitem" onkeyup="searchItem()" type="text" placeholder="Search menu - by course,by food">
             <div id = "menu" class="Menu"></div>
         </div>
 

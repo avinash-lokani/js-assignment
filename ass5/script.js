@@ -20,7 +20,7 @@ let menuItems = [
 
 let searchItemsList = () =>{
                     
-
+    console.log("called item");
 
     const input = document.getElementById("searchitem");
     const filter = input.value.toLowerCase();
@@ -41,7 +41,8 @@ let searchItemsList = () =>{
 
     }                       
     });
-    console.log(resList);
+    
+    
     buildMenu(resList);
     
 }
@@ -94,6 +95,9 @@ function buildMenu(menuItemsList) {
 
 
 let searchTablesList = () =>{
+
+    console.log("called");
+
     const input = document.getElementById("searchtable");
     const filter = input.value.toLowerCase();
     const tableslist = document.querySelectorAll(".tables-list");
@@ -165,7 +169,7 @@ drop = (event) => {
 
     tempamt.textContent =  parseFloat(tempamt.innerText) + parseFloat(amt.innerText);
 
-    console.log(data,event.target.id); // item1 , 1
+    
 
     if(event.target.id == "1"){
         var key = itemname.textContent;
@@ -233,7 +237,6 @@ function displayItems(map,ev){
 
     var totalsum = 0;
 
-    console.log(map);
     const tableBody = document.querySelector(".tablebody");
 
     tableBody.innerHTML = "";
@@ -253,10 +256,7 @@ function displayItems(map,ev){
     const amount = ev.querySelector(".amount");
     const quantity = ev.querySelector(".no-of-items");
 
-    for(let [key ,value] of map){
-
-        console.log(key);
-        
+    for(let [key ,value] of map){        
         let val = 0;
 
         menuItems.forEach((element) => {
@@ -295,12 +295,9 @@ function displayItems(map,ev){
         delicon.addEventListener("click",() => {
             
             map.delete(key);
-            console.log("clicked");
-            console.log(map);
             displayItems(map,ev);
         })
-
-        console.log(input.value);
+      
 
         input.value = value;
         snoElement.textContent = sno;
@@ -308,7 +305,6 @@ function displayItems(map,ev){
         totalsum = totalsum + val * parseInt(input.value);
         price.innerText = val * parseInt(input.value);
 
-        console.log(input.value);
 
         tableBody.appendChild(tr);
         tr.appendChild(snoElement);
@@ -327,3 +323,18 @@ function displayItems(map,ev){
     var totalsumElement = document.querySelector(".totalamount");
     totalsumElement.innerText = totalsum;
 }
+
+const debounce = (func, wait) => {
+    let timeout;
+  
+    return function () {
+      let context = this,args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(context,args);
+      },wait);
+  };
+}
+
+const search = debounce(searchTablesList,1000);
+const searchItem = debounce(searchItemsList,1000);
